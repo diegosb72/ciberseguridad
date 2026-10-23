@@ -33,8 +33,8 @@ export default function LiteYouTube({ id, title = 'Vídeo de YouTube' }) {
         }}
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
-        <span className="w-16 h-16 rounded-full bg-paper/90 group-hover:bg-paper flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
-          <Play size={28} weight="fill" className="text-primary-ink ml-1" aria-hidden="true" />
+        <span className="w-16 h-16 rounded-full bg-paper dark:bg-[#1c1c1e]/90 group-hover:bg-paper dark:bg-[#1c1c1e] flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
+          <Play size={28} weight="fill" className="text-primary-ink dark:text-[#f5f5f7] ml-1" aria-hidden="true" />
         </span>
       </div>
       <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-black/70 text-white text-[11px] font-medium backdrop-blur">▶ Reproducir</span>

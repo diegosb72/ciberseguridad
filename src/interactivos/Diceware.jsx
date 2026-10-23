@@ -34,28 +34,28 @@ export default function Diceware(){
 
   const copy = async()=> { await navigator.clipboard.writeText(phrase); }
   return (
-    <div className="rounded-[28px] bg-canvas p-6">
+    <div className="rounded-[28px] bg-canvas dark:bg-[#000000] p-6">
       <div className="flex items-center justify-between">
-        <div className="text-[12px] font-semibold tracking-[0.06em] text-primary-ink">FRASE DE PASO</div>
-        <span className="text-[11px] px-2 py-1 rounded-full bg-paper border border-hairline text-primary-ink">{bits} bits</span>
+        <div className="text-[12px] font-semibold tracking-[0.06em] text-primary-ink dark:text-[#f5f5f7]">FRASE DE PASO</div>
+        <span className="text-[11px] px-2 py-1 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-primary-ink dark:text-[#f5f5f7]">{bits} bits</span>
       </div>
-      <p className="text-[12px] leading-5 text-deep-gray mt-1">Diceware ES: 4 palabras aleatorias con <code className="bg-paper px-1 py-0.5 rounded border border-hairline">crypto.getRandomValues</code>. Sustituye a IES-Mostoles-2026!</p>
-      <div className="mt-4 rounded-[16px] bg-paper border border-hairline p-4">
-        <div className="text-[15px] font-mono font-medium text-primary-ink break-all text-center" aria-live="polite">{phrase}</div>
+      <p className="text-[12px] leading-5 text-deep-gray dark:text-[#a1a1a6] mt-1">Diceware ES: 4 palabras aleatorias con <code className="bg-paper dark:bg-[#1c1c1e] px-1 py-0.5 rounded border border-hairline dark:border-white/10">crypto.getRandomValues</code>. Sustituye a IES-Mostoles-2026!</p>
+      <div className="mt-4 rounded-[16px] bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 p-4">
+        <div className="text-[15px] font-mono font-medium text-primary-ink dark:text-[#f5f5f7] break-all text-center" aria-live="polite">{phrase}</div>
         <div className="mt-3 flex gap-2 justify-center flex-wrap">
           <button onClick={()=> setWords(randomWords(4))} className="px-4 py-2 rounded-full bg-primary-ink text-white text-[12px] font-medium">Nueva frase</button>
-          <button onClick={copy} className="px-4 py-2 rounded-full bg-paper border border-hairline text-primary-ink text-[12px]">Copiar</button>
-          <select value={sep} onChange={e=> setSep(e.target.value)} className="px-3 py-2 rounded-full bg-paper border border-hairline text-[12px]">
+          <button onClick={copy} className="px-4 py-2 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-primary-ink dark:text-[#f5f5f7] text-[12px]">Copiar</button>
+          <select value={sep} onChange={e=> setSep(e.target.value)} className="px-3 py-2 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-[12px]">
             <option value="-">-</option><option value=" ">espacio</option><option value="">sin</option><option value="_">_</option>
           </select>
         </div>
         <div className="mt-4 grid grid-cols-2 gap-2 text-[11px]">
-          <div className="rounded-[12px] bg-canvas p-3 text-center">
-            <div className="font-semibold text-primary-ink">Tiempo crackeo</div>
+          <div className="rounded-[12px] bg-canvas dark:bg-[#000000] p-3 text-center">
+            <div className="font-semibold text-primary-ink dark:text-[#f5f5f7]">Tiempo crackeo</div>
             <div className="text-electric-blue font-mono font-medium">{crack}</div>
           </div>
-          <div className="rounded-[12px] bg-canvas p-3 text-center">
-            <div className="font-semibold text-primary-ink">Longitud</div>
+          <div className="rounded-[12px] bg-canvas dark:bg-[#000000] p-3 text-center">
+            <div className="font-semibold text-primary-ink dark:text-[#f5f5f7]">Longitud</div>
             <div className="text-electric-blue font-mono">{phrase.length} car.</div>
           </div>
         </div>

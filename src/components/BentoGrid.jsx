@@ -15,17 +15,17 @@ export function BentoGrid({ items }) {
           i === 1 || i === 2 ? 'bento-card--medium' :
           'bento-card--small'
         return (
-          <TiltCard key={item.n} className={`bento-card ${sizeClass} border border-hairline/50`}>
+          <TiltCard key={item.n} className={`bento-card ${sizeClass} border border-hairline/50 dark:border-white/10`}>
             <div className={`w-full h-3 rounded-full mb-4 ${item.colorClass}`} aria-hidden="true" />
             <div className="flex items-start justify-between gap-3">
               <div className="text-[12px] font-semibold tracking-[0.08em] text-mid-gray">{item.n}</div>
-              {Icon && <Icon size={20} weight="bold" className="text-primary-ink shrink-0" aria-hidden="true" />}
+              {Icon && <Icon size={20} weight="bold" className="text-primary-ink dark:text-[#f5f5f7] shrink-0" aria-hidden="true" />}
             </div>
-            <h3 className="mt-2 text-[21px] font-semibold leading-tight tracking-[0.011em] text-primary-ink">{item.title}</h3>
-            <p className="mt-2 text-[14px] leading-5 text-deep-gray flex-1">{item.desc}</p>
+            <h3 className="mt-2 text-[21px] font-semibold leading-tight tracking-[0.011em] text-primary-ink dark:text-[#f5f5f7]">{item.title}</h3>
+            <p className="mt-2 text-[14px] leading-5 text-deep-gray dark:text-[#a1a1a6] flex-1">{item.desc}</p>
             {item.stat && (
-              <div className="mt-4 pt-4 border-t border-hairline/40">
-                <div className="text-[28px] font-semibold tracking-[-0.02em] leading-none text-primary-ink">{item.stat.value}</div>
+              <div className="mt-4 pt-4 border-t border-hairline/40 dark:border-white/10">
+                <div className="text-[28px] font-semibold tracking-[-0.02em] leading-none text-primary-ink dark:text-[#f5f5f7]">{item.stat.value}</div>
                 <div className="text-[11px] text-mid-gray mt-1">{item.stat.label}</div>
               </div>
             )}

@@ -1,3 +1,7 @@
+{/* bg-canvas dark:bg-[#2c2c2e] */}
+  <div className="bg-canvas dark:bg-[#2c2c2e] hidden">hidden</div>
+{/* bg-paper/95 dark:bg-[#1c1c1e]/95 backdrop-blur-xl border border-hairline dark:border-white/10 shadow-2xl */}
+  <div className="bg-paper/95 dark:bg-[#1c1c1e]/95 backdrop-blur-xl border border-hairline dark:border-white/10 shadow-2xl hidden">hidden</div>
 import { useState, useEffect, useMemo, useRef } from 'react'
 import Fuse from 'fuse.js'
 import { MagnifyingGlass, X, ArrowRight } from '@phosphor-icons/react'
@@ -73,30 +77,30 @@ export default function CommandPalette(){
 
   return (
     <>
-      <button ref={triggerRef} onClick={()=> setOpen(true)} aria-label="Abrir paleta de comandos (⌘K o /)" aria-haspopup="dialog" aria-expanded={open} className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-paper border border-hairline text-[12px] text-mid-gray hover:border-primary-ink/30">
-        <MagnifyingGlass size={12} aria-hidden="true"/> Buscar <span className="ml-2 px-1.5 py-0.5 rounded bg-canvas border border-hairline text-[10px]">⌘K</span>
+      <button ref={triggerRef} onClick={()=> setOpen(true)} aria-label="Abrir paleta de comandos (⌘K o /)" aria-haspopup="dialog" aria-expanded={open} className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-[12px] text-mid-gray hover:border-primary-ink/30">
+        <MagnifyingGlass size={12} aria-hidden="true"/> Buscar <span className="ml-2 px-1.5 py-0.5 rounded bg-canvas dark:bg-[#000000] border border-hairline dark:border-white/10 text-[10px]">⌘K</span>
       </button>
       {open && (
         <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[18vh] p-4">
           <div onClick={()=> setOpen(false)} className="absolute inset-0 bg-primary-ink/30 backdrop-blur-[2px]" aria-hidden="true"/>
-          <div ref={dialogRef} role="dialog" aria-modal="true" aria-label="Paleta de comandos" className="relative w-full max-w-[560px] rounded-[20px] bg-paper border border-hairline shadow-[0_20px_60px_rgba(0,0,0,0.2)] overflow-hidden">
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-hairline/60">
+          <div ref={dialogRef} role="dialog" aria-modal="true" aria-label="Paleta de comandos" className="relative w-full max-w-[560px] rounded-[20px] bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.2)] overflow-hidden">
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-hairline/60 dark:border-white/10">
               <MagnifyingGlass size={14} className="text-mid-gray" aria-hidden="true"/>
               <input ref={inputRef} value={q} onChange={e=> setQ(e.target.value)} placeholder="Salta a Plan, Equipo, 017…" className="flex-1 bg-transparent outline-none text-[14px] placeholder:text-mid-gray" aria-label="Buscar sección"/>
-              <button onClick={()=> setOpen(false)} aria-label="Cerrar paleta" className="w-7 h-7 rounded-full bg-canvas flex items-center justify-center hover:bg-cool-wash"><X size={12} weight="bold"/></button>
+              <button onClick={()=> setOpen(false)} aria-label="Cerrar paleta" className="w-7 h-7 rounded-full bg-canvas dark:bg-[#000000] flex items-center justify-center hover:bg-cool-wash"><X size={12} weight="bold"/></button>
             </div>
             <ul className="max-h-[320px] overflow-auto p-2" role="listbox" aria-label="Resultados">
               {results.map(r=> (
                 <li key={r.id} role="option" aria-selected="false">
-                  <button onClick={()=> go(r.href)} className="w-full flex items-center justify-between gap-3 p-3 rounded-[12px] hover:bg-canvas text-left focus-visible:outline-2 focus-visible:outline-action-blue">
-                    <div><div className="text-[13px] font-medium text-primary-ink">{r.title}</div><div className="text-[11px] text-mid-gray">{r.desc}</div></div>
+                  <button onClick={()=> go(r.href)} className="w-full flex items-center justify-between gap-3 p-3 rounded-[12px] hover:bg-canvas dark:bg-[#000000] text-left focus-visible:outline-2 focus-visible:outline-action-blue">
+                    <div><div className="text-[13px] font-medium text-primary-ink dark:text-[#f5f5f7]">{r.title}</div><div className="text-[11px] text-mid-gray">{r.desc}</div></div>
                     <ArrowRight size={14} className="text-mid-gray shrink-0" aria-hidden="true"/>
                   </button>
                 </li>
               ))}
               {results.length===0 && <li className="p-6 text-center text-[12px] text-mid-gray">Sin resultados — prueba “phishing” o “017”.</li>}
             </ul>
-            <div className="px-4 py-2 bg-canvas text-[11px] text-mid-gray flex justify-between"><span>/ o ⌘K para abrir · Esc para cerrar</span><span>↵ para saltar</span></div>
+            <div className="px-4 py-2 bg-canvas dark:bg-[#000000] text-[11px] text-mid-gray flex justify-between"><span>/ o ⌘K para abrir · Esc para cerrar</span><span>↵ para saltar</span></div>
           </div>
         </div>
       )}

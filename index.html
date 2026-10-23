@@ -33,23 +33,6 @@
       })();
     </script>
     <style>html.dark{color-scheme:dark}html{color-scheme:light}</style>
-    <script>
-      // EMERGENCY SW WIPE: Si la app falla al cargar, destruye el SW y recarga.
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-          }
-        });
-        caches.keys().then(function(names) {
-          for (let name of names) {
-            if (name.includes('vite') || name.includes('workbox')) {
-              caches.delete(name);
-            }
-          }
-        });
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>

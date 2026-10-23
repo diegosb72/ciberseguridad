@@ -56,32 +56,32 @@ export default function Simulacro(){
   const advice = score>=5 ? "Puedes enseñar a tu clase. Recuerda: MFA + Win+L + copias." : score>=3 ? "Vas bien. Repasa: remitente @educa.madrid.org y no compartir cuentas." : "Repasemos lo básico: bloqueo, remitente real y no pagar chollos."
 
   return (
-    <section className="bg-canvas" aria-labelledby="sim-title">
+    <section className="bg-canvas dark:bg-[#000000]" aria-labelledby="sim-title">
       <div className="apple-shell apple-section">
         <div className="text-center">
           <div className="text-[12px] font-semibold tracking-[0.06em] text-electric-blue">TUTORÍA 5′</div>
-          <h2 id="sim-title" className="mt-2 text-[32px] md:text-[44px] font-semibold tracking-[-0.02em] text-primary-ink leading-none">Hackéame si puedes</h2>
-          <p className="mx-auto mt-3 max-w-[560px] text-[14px] leading-6 text-deep-gray">Aventura encadenada. Tus decisiones cambian la historia. Todo en el navegador.</p>
+          <h2 id="sim-title" className="mt-2 text-[32px] md:text-[44px] font-semibold tracking-[-0.02em] text-primary-ink dark:text-[#f5f5f7] leading-none">Hackéame si puedes</h2>
+          <p className="mx-auto mt-3 max-w-[560px] text-[14px] leading-6 text-deep-gray dark:text-[#a1a1a6]">Aventura encadenada. Tus decisiones cambian la historia. Todo en el navegador.</p>
         </div>
 
         <div className="mt-8 max-w-[720px] mx-auto">
           {!done ? (
-            <div className="rounded-[28px] bg-paper overflow-hidden border border-hairline/60">
-              <div className="px-6 py-4 flex justify-between items-center bg-canvas border-b border-hairline/50">
+            <div className="rounded-[28px] bg-paper dark:bg-[#1c1c1e] overflow-hidden border border-hairline/60 dark:border-white/10">
+              <div className="px-6 py-4 flex justify-between items-center bg-canvas dark:bg-[#000000] border-b border-hairline/50 dark:border-white/10">
                 <span className="text-[11px] font-semibold tracking-[0.06em] text-mid-gray">{cur.title}</span>
                 <span className="px-3 py-1 rounded-full bg-primary-ink text-white text-[11px] font-medium">{score} pts</span>
               </div>
               <div className="h-[2px] bg-hairline"><motion.div initial={{width:0}} animate={{width:`${(i/SCENES.length)*100}%`}} className="h-full bg-electric-blue"/></div>
               <div className="p-6 md:p-8">
-                <p className="text-[15px] leading-6 font-medium text-primary-ink">{cur.text}</p>
+                <p className="text-[15px] leading-6 font-medium text-primary-ink dark:text-[#f5f5f7]">{cur.text}</p>
                 <div className="mt-6 space-y-3">
                   {cur.choices.map((c,idx)=>{
                     const isPicked = picked===idx
                     const otherPicked = picked!==null && !isPicked
                     return (
-                      <button key={idx} onClick={()=> choose(idx)} disabled={picked!==null} className={`w-full text-left p-4 rounded-[16px] border flex gap-3 text-[13px] leading-5 ${isPicked ? (c.score===2 ? 'bg-[#eef6ee] border-[#1a7a2e]':'bg-[#fef2f0] border-[#c4281c]') : otherPicked ? 'bg-paper border-hairline opacity-60':'bg-paper border-hairline hover:border-primary-ink'}`}>
-                        <span className={`w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-semibold shrink-0 border ${isPicked ? (c.score===2?'bg-[#1a7a2e] text-white border-[#1a7a2e]':'bg-[#c4281c] text-white border-[#c4281c]'):'bg-paper border-hairline text-primary-ink'}`}>{String.fromCharCode(65+idx)}</span>
-                        <span className="flex-1 text-primary-ink">{c.label}</span>
+                      <button key={idx} onClick={()=> choose(idx)} disabled={picked!==null} className={`w-full text-left p-4 rounded-[16px] border flex gap-3 text-[13px] leading-5 ${isPicked ? (c.score===2 ? 'bg-[#eef6ee] border-[#1a7a2e]':'bg-[#fef2f0] border-[#c4281c]') : otherPicked ? 'bg-paper dark:bg-[#1c1c1e] border-hairline dark:border-white/10 opacity-60':'bg-paper dark:bg-[#1c1c1e] border-hairline dark:border-white/10 hover:border-primary-ink'}`}>
+                        <span className={`w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-semibold shrink-0 border ${isPicked ? (c.score===2?'bg-[#1a7a2e] text-white border-[#1a7a2e]':'bg-[#c4281c] text-white border-[#c4281c]'):'bg-paper dark:bg-[#1c1c1e] border-hairline dark:border-white/10 text-primary-ink dark:text-[#f5f5f7]'}`}>{String.fromCharCode(65+idx)}</span>
+                        <span className="flex-1 text-primary-ink dark:text-[#f5f5f7]">{c.label}</span>
                         {isPicked && <span className="text-[11px] font-semibold">{c.score===2?'✓':'✕'}</span>}
                       </button>
                     )
@@ -89,8 +89,8 @@ export default function Simulacro(){
                 </div>
                 <AnimatePresence>
                   {picked!==null && (
-                    <motion.div initial={{opacity:0, y:8}} animate={{opacity:1, y:0}} className="mt-5 rounded-[16px] bg-canvas p-4">
-                      <p className="text-[13px] leading-5 text-primary-ink"><span className="font-semibold">{cur.choices[picked].score===2?'¡Bien!':'Atención:'}</span> {cur.choices[picked].feedback}</p>
+                    <motion.div initial={{opacity:0, y:8}} animate={{opacity:1, y:0}} className="mt-5 rounded-[16px] bg-canvas dark:bg-[#000000] p-4">
+                      <p className="text-[13px] leading-5 text-primary-ink dark:text-[#f5f5f7]"><span className="font-semibold">{cur.choices[picked].score===2?'¡Bien!':'Atención:'}</span> {cur.choices[picked].feedback}</p>
                       <button onClick={next} className="mt-4 apple-pill bg-electric-blue text-white text-[13px]">{i+1===SCENES.length?'Ver Cyber-Score':'Siguiente escena →'}</button>
                     </motion.div>
                   )}
@@ -98,13 +98,13 @@ export default function Simulacro(){
               </div>
             </div>
           ) : (
-            <div className="rounded-[28px] bg-paper border border-hairline/60 p-8 text-center">
+            <div className="rounded-[28px] bg-paper dark:bg-[#1c1c1e] border border-hairline/60 dark:border-white/10 p-8 text-center">
               <div className="w-14 h-14 rounded-full bg-electric-blue flex items-center justify-center mx-auto text-white font-semibold">{score}/6</div>
-              <h3 className="mt-4 text-[22px] font-semibold text-primary-ink">{level}</h3>
-              <p className="mt-2 text-[13px] leading-5 text-deep-gray max-w-[480px] mx-auto">{advice}</p>
+              <h3 className="mt-4 text-[22px] font-semibold text-primary-ink dark:text-[#f5f5f7]">{level}</h3>
+              <p className="mt-2 text-[13px] leading-5 text-deep-gray dark:text-[#a1a1a6] max-w-[480px] mx-auto">{advice}</p>
               <div className="mt-6 flex justify-center gap-3 flex-wrap">
                 <button onClick={reset} className="apple-pill bg-electric-blue text-white text-[13px]">Repetir aventura</button>
-                <a href="#quiz" className="apple-pill bg-paper border border-hairline text-primary-ink text-[13px]">Ir al test</a>
+                <a href="#quiz" className="apple-pill bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-primary-ink dark:text-[#f5f5f7] text-[13px]">Ir al test</a>
               </div>
             </div>
           )}

@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <>
       <a href="#main" className="skip-link">Saltar al contenido principal</a>
-      <div className="w-full bg-paper dark:bg-[#1d1d1f] text-center py-2 px-4 text-[11px] leading-4 text-primary-ink border-b border-hairline/30">
+      <div className="w-full bg-paper dark:bg-[#1d1d1f] text-center py-2 px-4 text-[11px] leading-4 text-primary-ink dark:text-[#f5f5f7] border-b border-hairline/30 dark:border-white/10">
         <span className="hidden sm:inline text-mid-gray">Línea gratuita y confidencial · </span>
         <a href="tel:017" title="INCIBE 017 — también 900 116 117" aria-label="Llamar a INCIBE 017, ayuda gratuita 8 a 23 horas, también 900 116 117" className="font-medium text-link-blue hover:underline underline-offset-4 focus-visible:rounded">INCIBE <span className="font-semibold">017</span></a>
         <span aria-hidden="true" className="mx-1.5 text-hairline">·</span>
@@ -46,7 +46,7 @@ export default function Header() {
         <span aria-hidden="true" className="hidden sm:inline mx-1.5 text-hairline">·</span>
         <a href="tel:112" title="Emergencias 112 — solo si hay peligro físico" aria-label="Llamar a emergencias 112" className="font-medium text-link-blue hover:underline underline-offset-4 focus-visible:rounded">112 <span className="font-normal">Emergencias</span></a>
         <span className="mx-1.5 text-hairline" aria-hidden="true">·</span>
-        <span className="text-deep-gray">DPD <a href="tel:+34917204068" className="font-medium text-link-blue hover:underline focus-visible:rounded">91 720 4068</a></span>
+        <span className="text-deep-gray dark:text-[#a1a1a6]">DPD <a href="tel:+34917204068" className="font-medium text-link-blue hover:underline focus-visible:rounded">91 720 4068</a></span>
         <span className="hidden lg:inline text-mid-gray"> · Avda. Olímpica, 16 — Móstoles · 28028568</span>
       </div>
 
@@ -55,31 +55,31 @@ export default function Header() {
         className={`sticky top-2 z-50 w-full transition-all duration-300 ${elevated ? 'py-1' : 'py-0'}`}
       >
         {/* audit: shadow-[0_1px_3px_rgba(0,0,0,0.1)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.5)] */}
-        <div className={`mx-auto max-w-[1200px] px-4 lg:px-10 transition-all duration-300 ${elevated ? 'bg-paper/95 dark:bg-[#1d1d1f]/95 backdrop-blur-md shadow-sm' : 'apple-nav bg-paper/95 dark:bg-[#1d1d1f]/95 backdrop-blur-md border-b border-transparent'}`}>
+        <div className={`mx-auto max-w-[1200px] px-4 lg:px-10 transition-all duration-300 ${elevated ? 'bg-paper dark:bg-[#1c1c1e]/95 dark:bg-[#1d1d1f]/95 backdrop-blur-md shadow-sm' : 'apple-nav bg-paper dark:bg-[#1c1c1e]/95 dark:bg-[#1d1d1f]/95 backdrop-blur-md border-b border-transparent'}`}>
           <div className="h-[44px] flex items-center justify-between">
             <a href="#" className="flex items-center gap-2.5 shrink-0" aria-label="Inicio — IES Manuel de Falla">
               <img src={import.meta.env.BASE_URL + 'assets/ies-manuel-de-falla-logo.svg'} alt="IES Manuel de Falla — logo" className="h-7 w-auto object-contain" width="28" height="28" />
               <span className="hidden sm:flex flex-col leading-none">
-                <span className="text-[12px] font-semibold tracking-[-0.01em] text-primary-ink">Manuel de Falla</span>
+                <span className="text-[12px] font-semibold tracking-[-0.01em] text-primary-ink dark:text-[#f5f5f7]">Manuel de Falla</span>
                 <span className="text-[11px] font-normal text-mid-gray tracking-[-0.01em]">Móstoles · Ciberseguridad</span>
               </span>
             </a>
 
             <nav className="hidden lg:flex items-center gap-5" aria-label="Secciones">
               {links.map(l => (
-                <a key={l.href} href={l.href} onClick={(e)=>{ if(scrollToTarget(l.href)) e.preventDefault() }} className="text-[12px] font-normal text-primary-ink hover:text-deep-gray transition-colors py-2 px-1" aria-label={`Ir a sección ${l.label}`}>
+                <a key={l.href} href={l.href} onClick={(e)=>{ if(scrollToTarget(l.href)) e.preventDefault() }} className="text-[12px] font-normal text-primary-ink dark:text-[#f5f5f7] hover:text-deep-gray dark:text-[#a1a1a6] transition-colors py-2 px-1" aria-label={`Ir a sección ${l.label}`}>
                   {l.label}
                 </a>
               ))}
             </nav>
 
-            <div className="hidden lg:flex items-center gap-1.5 text-primary-ink">
-              <a href="#recursos" className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-canvas transition-colors" aria-label="Buscar recursos"><MagnifyingGlass size={14} weight="regular" aria-hidden="true" /></a>
+            <div className="hidden lg:flex items-center gap-1.5 text-primary-ink dark:text-[#f5f5f7]">
+              <a href="#recursos" className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-canvas dark:bg-[#000000] transition-colors" aria-label="Buscar recursos"><MagnifyingGlass size={14} weight="regular" aria-hidden="true" /></a>
               <button
                 onClick={toggle}
                 aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
                 aria-pressed={theme === 'dark'}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-canvas transition-colors"
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-canvas dark:bg-[#000000] transition-colors"
               >
                 {theme === 'dark' ? <Sun size={14} weight="regular" aria-hidden="true" /> : <Moon size={14} weight="regular" aria-hidden="true" />}
               </button>
@@ -90,13 +90,13 @@ export default function Header() {
               <button
                 onClick={toggle}
                 aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
-                className="w-10 h-[44px] flex items-center justify-center text-primary-ink"
+                className="w-10 h-[44px] flex items-center justify-center text-primary-ink dark:text-[#f5f5f7]"
               >
                 {theme === 'dark' ? <Sun size={16} weight="regular" aria-hidden="true" /> : <Moon size={16} weight="regular" aria-hidden="true" />}
               </button>
               <button
                 onClick={() => setOpen(v => !v)}
-                className="w-10 h-[44px] flex items-center justify-center text-primary-ink"
+                className="w-10 h-[44px] flex items-center justify-center text-primary-ink dark:text-[#f5f5f7]"
                 aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
                 aria-expanded={open}
                 aria-controls="mobile-menu"
@@ -117,11 +117,11 @@ export default function Header() {
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -6, filter: 'blur(4px)' }}
               transition={{ duration: 0.22, ease: [0.16,1,0.3,1] }}
-              className="lg:hidden mx-4 mt-2 rounded-[20px] bg-faded-surface/95 backdrop-blur-[20px] border border-hairline px-6 py-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+              className="lg:hidden mx-4 mt-2 rounded-[20px] bg-paper/95 dark:bg-[#1c1c1e]/95 backdrop-blur-md border-b border-hairline dark:border-white/10 backdrop-blur-[20px] border border-hairline dark:border-white/10 px-6 py-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
             >
               <div className="flex flex-col gap-3">
                 {links.map(l => (
-                  <a key={l.href} onClick={(e)=>{ setOpen(false); if(scrollToTarget(l.href)) e.preventDefault() }} href={l.href} className="text-[17px] font-normal text-primary-ink py-2 focus-visible:rounded">
+                  <a key={l.href} onClick={(e)=>{ setOpen(false); if(scrollToTarget(l.href)) e.preventDefault() }} href={l.href} className="text-[17px] font-normal text-primary-ink dark:text-[#f5f5f7] py-2 focus-visible:rounded">
                     {l.label}
                   </a>
                 ))}

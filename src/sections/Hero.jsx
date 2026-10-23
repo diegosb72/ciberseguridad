@@ -1,3 +1,6 @@
+{/* max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 */}
+{/* py-16 md:py-24 bg-canvas dark:bg-[#000000] transition-colors duration-300 */}
+  <div className="py-16 md:py-24 bg-canvas dark:bg-[#000000] transition-colors duration-300 hidden"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">hidden</div></div>
 // Tu familia, protegida. Sin complicaciones.
 import { Reveal, Counter } from '../components/Reveal'
 import { motion, useScroll, useTransform } from 'motion/react'
@@ -93,7 +96,7 @@ export default function Hero({ perfil = 'alumnado' }) {
           <Reveal delay={0.4}>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <MagneticButton href={cfg.cta2href === '#simulacro' ? '#dispositivos' : cfg.cta2href} className="apple-pill bg-action-blue text-white hover:bg-electric-blue shadow-[0_1px_8px_rgba(0,102,204,0.25)]" aria-label={cfg.cta1}>{cfg.cta1}</MagneticButton>
-              <EncryptButton text={cfg.cta2} href={cfg.cta2href} className="apple-pill bg-canvas dark:bg-[#1c1c1e] text-primary-ink dark:text-white border border-hairline/60 dark:border-[#38383a] hover:bg-paper dark:hover:bg-[#2c2c2e]" />
+              <EncryptButton text={cfg.cta2} href={cfg.cta2href} className="apple-pill bg-canvas dark:bg-[#1c1c1e] text-primary-ink dark:text-white border border-hairline/60 dark:border-white/10 dark:border-[#38383a] hover:bg-paper dark:bg-[#1c1c1e] dark:hover:bg-[#2c2c2e]" />
             </div>
           </Reveal>
           <div className="mt-4 text-center">
@@ -105,7 +108,7 @@ export default function Hero({ perfil = 'alumnado' }) {
         </div>
 
         <Reveal y={24} delay={0.15}>
-          <div className="mt-12 md:mt-16 rounded-[28px] bg-canvas/80 dark:bg-[#1c1c1e]/80 backdrop-blur-[12px] p-4 sm:p-6 md:p-8 overflow-hidden border border-hairline/30 dark:border-[#38383a]">
+          <div className="mt-12 md:mt-16 rounded-[28px] bg-canvas dark:bg-[#000000]/80 dark:bg-[#1c1c1e]/80 backdrop-blur-[12px] p-4 sm:p-6 md:p-8 overflow-hidden border border-hairline/30 dark:border-white/10 dark:border-[#38383a]">
             <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
               <div className="order-2 lg:order-1">
                 <div className="flex flex-wrap gap-2">
@@ -143,7 +146,7 @@ export default function Hero({ perfil = 'alumnado' }) {
               <div className="text-[32px] sm:text-[40px] font-semibold tracking-[-0.02em] text-primary-ink dark:text-white leading-none" style={{ fontWeight: 600 }}><Counter value="9" /></div>
               <div className="mt-1 text-[11px] sm:text-[12px] font-medium tracking-[0.04em] text-mid-gray dark:text-[#a1a1a6] leading-tight uppercase">riesgos<br/>mapeados</div>
             </div>
-            <div className="text-center py-4 border-x border-hairline/50 dark:border-[#38383a]" role="listitem">
+            <div className="text-center py-4 border-x border-hairline/50 dark:border-white/10 dark:border-[#38383a]" role="listitem">
               <div className="text-[32px] sm:text-[40px] font-semibold tracking-[-0.02em] text-primary-ink dark:text-white leading-none" style={{ fontWeight: 600 }}><Counter value="6" /></div>
               <div className="mt-1 text-[11px] sm:text-[12px] font-medium tracking-[0.04em] text-mid-gray dark:text-[#a1a1a6] leading-tight uppercase">meses<br/>hoja de ruta</div>
             </div>

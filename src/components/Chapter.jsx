@@ -8,13 +8,13 @@ export function ChapterHeader({ kicker, title, desc, align = 'center', id }) {
         <h2 id={id} className="apple-chapter-title mt-2 mx-auto max-w-[760px]">
           {title}
         </h2>
-        {desc && <p className="mx-auto mt-4 max-w-[640px] text-[17px] leading-6 text-deep-gray">{desc}</p>}
+        {desc && <p className="mx-auto mt-4 max-w-[640px] text-[17px] leading-6 text-deep-gray dark:text-[#a1a1a6]">{desc}</p>}
       </div>
     </Reveal>
   )
 }
 
-export function Chapter({ id, kicker, title, desc, children, bg = 'bg-paper', ariaLabel }) {
+export function Chapter({ id, kicker, title, desc, children, bg = 'bg-paper dark:bg-[#1c1c1e]', ariaLabel }) {
   return (
     <section id={id} className={bg} aria-labelledby={id ? `${id}-title` : undefined} aria-label={ariaLabel}>
       <div className="apple-shell apple-section">

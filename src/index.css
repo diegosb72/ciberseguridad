@@ -64,6 +64,18 @@
   --glass-saturate: 180%;
 }
 
+html.dark {
+  --color-paper: #1c1c1e;
+  --color-canvas: #000000;
+  --color-primary-ink: #f5f5f7;
+  --color-deep-gray: #a1a1a6;
+  --color-quiet-dot: #86868b;
+  --color-hairline: rgba(255, 255, 255, 0.15);
+  --color-action-blue: #4da3ff;
+  --color-electric-blue: #2997ff;
+  --color-ember: #ff9f0a;
+}
+
 :root {
   --bg-primary: #ffffff;
   --bg-secondary: #f5f5f7;
@@ -111,15 +123,18 @@ html.dark, .dark {
   --border-color: #333336;
   --color-primary-ink: #f5f5f7;
   --color-mid-gray: #a1a1a6;
-  --color-deep-gray: #c7c7cc;
-  --color-hairline: #424245;
+  --color-deep-gray: #a1a1a6;
+  --color-hairline: rgba(255, 255, 255, 0.15);
   --color-canvas: #000000;
   --color-paper: #1c1c1e;
   --color-cool-wash: #2c2c2e;
   --color-faded-surface: #1c1c1e;
-  --color-quiet-dot: #48484a;
+  --color-quiet-dot: #86868b;
   --glass-bg: rgba(29,29,31,0.72);
   --glass-border: rgba(255,255,255,0.12);
+  --color-action-blue: #4da3ff;
+  --color-electric-blue: #2997ff;
+  --color-ember: #ff9f0a;
 }
 html.dark body { background: var(--color-canvas, #000000); color: var(--color-primary-ink, #f5f5f7); }
 html.dark { background-color: #000000; color-scheme: dark; }

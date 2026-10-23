@@ -53,18 +53,18 @@ export default function EquipoProgreso({ system='windows' }){
   }
 
   return (
-    <div className="rounded-[28px] bg-paper border border-hairline p-6">
+    <div className="rounded-[28px] bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 p-6">
       <div className="flex items-center justify-between">
-        <h4 className="text-[13px] font-semibold tracking-[0.06em] text-primary-ink">MI EQUIPO — CHECKLIST</h4>
+        <h4 className="text-[13px] font-semibold tracking-[0.06em] text-primary-ink dark:text-[#f5f5f7]">MI EQUIPO — CHECKLIST</h4>
         <div className="relative w-10 h-10">
           <svg viewBox="0 0 36 36" className="w-10 h-10 -rotate-90" aria-hidden="true">
             <circle cx="18" cy="18" r="14" fill="none" stroke="#e8e8ed" strokeWidth="3"/>
             <circle cx="18" cy="18" r="14" fill="none" stroke="#0071e3" strokeWidth="3" strokeDasharray={`${pct*0.88} 100`} strokeLinecap="round"/>
           </svg>
-          <span className="absolute inset-0 flex items-center justify-center text-[10px] font-semibold text-primary-ink" aria-label={`${pct} por ciento completado`}>{pct}%</span>
+          <span className="absolute inset-0 flex items-center justify-center text-[10px] font-semibold text-primary-ink dark:text-[#f5f5f7]" aria-label={`${pct} por ciento completado`}>{pct}%</span>
         </div>
       </div>
-      <div className="mt-1 text-[12px] text-deep-gray capitalize">{system} — {done}/{items.length} completados</div>
+      <div className="mt-1 text-[12px] text-deep-gray dark:text-[#a1a1a6] capitalize">{system} — {done}/{items.length} completados</div>
       <div className="mt-2 rounded-[10px] bg-[#fff8e1] border border-[#ffe082] px-3 py-2">
         <p className="text-[11px] leading-4 text-[#5d4037]">⚠️ Modo privado: Estos datos se guardan solo en este navegador. Usa un dispositivo personal o bórralos al terminar.</p>
       </div>
@@ -72,9 +72,9 @@ export default function EquipoProgreso({ system='windows' }){
       <ul className="mt-4 space-y-2" role="list">
         {items.map((t,i)=> (
           <li key={i}>
-            <label className={`flex items-center gap-3 p-3 rounded-[12px] border cursor-pointer transition-colors ${checks[i]?'bg-[#e8f1ff] border-electric-blue/30':'bg-canvas border-transparent hover:bg-paper hover:border-hairline'}`}>
-              <input type="checkbox" checked={!!checks[i]} onChange={()=> toggle(i)} className="w-4 h-4 rounded border-hairline text-electric-blue focus:ring-[#0071e3]" aria-label={t}/>
-              <span className={`text-[13px] leading-4 ${checks[i]?'text-primary-ink font-medium':'text-deep-gray'}`}>{t}</span>
+            <label className={`flex items-center gap-3 p-3 rounded-[12px] border cursor-pointer transition-colors ${checks[i]?'bg-[#e8f1ff] border-electric-blue/30':'bg-canvas dark:bg-[#000000] border-transparent hover:bg-paper dark:bg-[#1c1c1e] hover:border-hairline dark:border-white/10'}`}>
+              <input type="checkbox" checked={!!checks[i]} onChange={()=> toggle(i)} className="w-4 h-4 rounded border-hairline dark:border-white/10 text-electric-blue focus:ring-[#0071e3]" aria-label={t}/>
+              <span className={`text-[13px] leading-4 ${checks[i]?'text-primary-ink dark:text-[#f5f5f7] font-medium':'text-deep-gray dark:text-[#a1a1a6]'}`}>{t}</span>
               {checks[i] && <span className="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-electric-blue text-white" aria-hidden="true">✓</span>}
             </label>
           </li>
@@ -82,9 +82,9 @@ export default function EquipoProgreso({ system='windows' }){
       </ul>
       <div className="mt-4 flex gap-2">
         <button onClick={exportPDF} className="flex-1 apple-pill bg-primary-ink text-white text-[12px] text-center">Certificado PDF ↓</button>
-        <button onClick={borrarDatos} className="apple-pill bg-paper border border-hairline text-primary-ink text-[12px]">🗑️ Borrar datos locales</button>
+        <button onClick={borrarDatos} className="apple-pill bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-primary-ink dark:text-[#f5f5f7] text-[12px]">🗑️ Borrar datos locales</button>
       </div>
-      <p className="mt-2 text-[11px] text-mid-gray text-center">Guardado en <code className="bg-canvas px-1 rounded">localStorage</code> (no sale del navegador).</p>
+      <p className="mt-2 text-[11px] text-mid-gray text-center">Guardado en <code className="bg-canvas dark:bg-[#000000] px-1 rounded">localStorage</code> (no sale del navegador).</p>
     </div>
   )
 }

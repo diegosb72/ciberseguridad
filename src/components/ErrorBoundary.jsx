@@ -17,11 +17,11 @@ export default class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-canvas p-8 text-primary-ink">
+        <div className="min-h-screen flex items-center justify-center bg-canvas dark:bg-[#000000] p-8 text-primary-ink dark:text-[#f5f5f7]">
           <div className="max-w-md text-center">
             <h1 className="text-2xl font-bold text-ember mb-4">⚠️ Error de carga</h1>
-            <p className="mb-4 text-deep-gray">Algo salió mal al cargar la aplicación. Esto suele deberse a una actualización pendiente.</p>
-            <pre className="bg-paper p-4 rounded text-left text-xs overflow-auto mb-4 border border-hairline">
+            <p className="mb-4 text-deep-gray dark:text-[#a1a1a6]">Algo salió mal al cargar la aplicación. Esto suele deberse a una actualización pendiente.</p>
+            <pre className="bg-paper dark:bg-[#1c1c1e] p-4 rounded text-left text-xs overflow-auto mb-4 border border-hairline dark:border-white/10">
               {this.state.error?.toString()}
             </pre>
             <button 
