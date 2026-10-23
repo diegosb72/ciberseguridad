@@ -1,0 +1,523 @@
+@import "tailwindcss";
+
+/* 1. Variante dark para Tailwind v4 — @custom-variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   Apple — Cathedral Tokens | DESIGN.md via shadcn.io/design/apple
+   Filosofía MacBook Neo: prioriza experiencia > specs, scroll controla historia,
+   jerarquía despiadada, un foco por pantalla, UI invisible.
+   ============================================================ */
+@theme {
+  --color-primary-ink: #1d1d1f;
+  --color-mid-gray: #515154;
+  --color-deep-gray: #474747;
+  --color-hairline: #d6d6d6;
+  --color-canvas: #f5f5f7;
+  --color-paper: #ffffff;
+  --color-cool-wash: #e8e8ed;
+  --color-faded-surface: #fafafc;
+  --color-quiet-dot: #59595b;
+  --color-electric-blue: #0071e3;
+  --color-link-blue: #0066cc;
+  --color-action-blue: #0066cc;
+  --color-ember: #b64400;
+  --color-sky: #c8d8e0;
+  --color-citrus: #dddc8c;
+  --color-starlight: #f0e4d3;
+  --color-silver: #e3e4e5;
+  --color-blush: #e8d0d0;
+  --color-indigo: #596680;
+  --color-midnight: #2e3642;
+
+  /* Apple DESIGN.md: typography scale — SF Pro Display/Text */
+  --font-sf-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-sf-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+
+  /* Apple type ramp (extracted from apple.com): 12 / 14 / 17 / 21 / 28 / 32 / 40 / 56 / 80 / 96 */
+  --text-micro: 12px;
+  --text-caption: 14px;
+  --text-body-sm: 17px;
+  --text-body: 21px;
+  --text-body-lg: 28px;
+  --text-subheading: 32px;
+  --text-heading-sm: 40px;
+  --text-heading: 56px;
+  --text-heading-lg: 80px;
+  --text-display: 96px;
+
+  /* Apple radii: 12 / 18 / 28 per DESIGN.md */
+  --radius-apple-sm: 12px;
+  --radius-apple-md: 18px;
+  --radius-apple-lg: 28px;
+  --radius-cards: 28px;
+  --radius-badges: 36px;
+  --radius-buttons: 980px;
+  --radius-smallbuttons: 999px;
+
+  --spacing-44: 44px;
+
+  /* Glass tokens — Apple spec: blur 15px + rgba .72 */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-blur: 15px;
+  --glass-saturate: 180%;
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --text-primary: #1d1d1f;
+  --text-secondary: #515154;
+  --border-color: #e5e5e5;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --color-primary-ink: #1d1d1f;
+  --color-mid-gray: #515154;
+  --color-deep-gray: #474747;
+  --color-hairline: #d6d6d6;
+  --color-canvas: #f5f5f7;
+  --color-paper: #ffffff;
+  --color-electric-blue: #0071e3;
+  --color-link-blue: #0066cc;
+  --color-action-blue: #0066cc;
+  --color-ember: #b64400;
+  /* Typography defaults */
+  --font-apple: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* WCAG AA — fix #707070 → #515154 for 4.5:1 on white (11px labels) */
+.text-\[\#707070\] { color: #515154; }
+
+/* Modo oscuro — audit spec exacta */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #1d1d1f;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --border-color: #333336;
+  --glass-bg: rgba(29, 29, 31, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+html.dark, .dark {
+  --bg-primary: #000000;
+  --bg-secondary: #1d1d1f;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --border-color: #333336;
+  --color-primary-ink: #f5f5f7;
+  --color-mid-gray: #a1a1a6;
+  --color-deep-gray: #c7c7cc;
+  --color-hairline: #424245;
+  --color-canvas: #000000;
+  --color-paper: #1c1c1e;
+  --color-cool-wash: #2c2c2e;
+  --color-faded-surface: #1c1c1e;
+  --color-quiet-dot: #48484a;
+  --glass-bg: rgba(29,29,31,0.72);
+  --glass-border: rgba(255,255,255,0.12);
+}
+html.dark body { background: var(--color-canvas, #000000); color: var(--color-primary-ink, #f5f5f7); }
+html.dark { background-color: #000000; color-scheme: dark; }
+html { background-color: #ffffff; color-scheme: light; }
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* WCAG AA — Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: #1d1d1f;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 100;
+  font-size: 14px;
+  text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* Focus visible — WCAG 2.4.7 */
+*:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; transition: background-color 0.3s, color 0.3s; }
+body { transition-property: color, background-color; transition-duration: 300ms; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition { display: none !important; }
+}
+/* View Transitions API */
+@supports (view-transition-name: none) {
+  ::view-transition-group(*) { animation-duration: 0.35s; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-risk { view-transition-name: risk-card; }
+}
+
+/* ===== Apple Typography ===== */
+body {
+  background-color: var(--bg-primary, #ffffff);
+  color: var(--text-primary, #1d1d1f);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px; /* Apple base 17px, not 16px */
+  line-height: 1.47059;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-feature-settings: normal;
+  letter-spacing: normal;
+}
+/* Headlines: SF Pro Display, weights 300/400/600/700 — NEVER 500 */
+h1, h2, h3, .apple-headline {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.015em; /* Apple tight rhythm */
+  font-variant-ligatures: common-ligatures;
+}
+h1 { font-weight: 600; letter-spacing: -0.03em; }
+h2 { font-weight: 600; letter-spacing: -0.02em; }
+h3 { font-weight: 600; letter-spacing: -0.015em; }
+
+/* Apple: no shadows anywhere, only band alternation */
+.apple-card {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid transparent;
+}
+.apple-card-canvas {
+  background: #ffffff;
+  border-radius: 28px;
+}
+
+/* hairline utility — Apple HIG 1px hairline */
+.hairline-b { border-bottom: 1px solid #d6d6d6; }
+.hairline-t { border-top: 1px solid #d6d6d6; }
+
+/* pill button — Apple pill 980px */
+.apple-pill {
+  border-radius: 980px;
+  padding: 11px 22px;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-variant-numeric: normal;
+  transition: background 0.2s, color 0.2s, opacity 0.2s, transform 0.2s;
+}
+.apple-pill:hover { opacity: 0.9; }
+
+/* ===== Apple Glassmorphism — Liquid Glass =====
+   Formula: backdrop-filter blur(15px) + rgba(255,255,255,.25) + 1px border rgba(255,255,255,.3)
+   Only over rich backgrounds (hero, images, video). On flat, use solid near-black/parchment.
+*/
+.apple-glass {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.30);
+  border-radius: 20px;
+}
+.apple-glass-dark {
+  background: rgba(29,29,31,0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+}
+.apple-glass-card {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(214,214,214,0.5);
+  border-radius: 28px;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+}
+.apple-glass-card:hover {
+  transform: translateY(-2px);
+}
+
+/* hide scrollbar for tabs */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* page max */
+.apple-shell { max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+@media (min-width: 1024px) { .apple-shell { padding-left: 40px; padding-right: 40px; } }
+@media (max-width: 375px) { .apple-shell { padding-left: 16px; padding-right: 16px; } }
+
+/* section rhythm — responsive */
+.apple-section { padding: 56px 0; }
+@media (min-width: 768px) { .apple-section { padding: 80px 0; } }
+@media (min-width: 1024px) { .apple-section { padding: 100px 0; } }
+
+/* nav blur — floating glass nav */
+.apple-nav {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+.apple-nav-glass {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(251,251,253,0.85);
+  border: 1px solid rgba(214,214,214,0.4);
+  border-radius: 980px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* ===== Bento Grid — Apple style ===== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  grid-auto-rows: minmax(160px, auto);
+}
+@media (min-width: 768px) {
+  .bento-grid { gap: 20px; }
+}
+.bento-card {
+  border-radius: 28px;
+  background: #ffffff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.bento-card:hover { transform: scale(1.01); }
+.bento-card--large { grid-column: span 12; }
+.bento-card--medium { grid-column: span 12; }
+.bento-card--small { grid-column: span 12; }
+@media (min-width: 768px) {
+  .bento-card--large { grid-column: span 7; grid-row: span 2; }
+  .bento-card--medium { grid-column: span 5; }
+  .bento-card--small { grid-column: span 6; }
+}
+@media (min-width: 1024px) {
+  .bento-card--large { grid-column: span 6; }
+  .bento-card--medium { grid-column: span 3; }
+  .bento-card--small { grid-column: span 3; }
+}
+
+/* ===== Chapter — Apple narrative ===== */
+.apple-chapter-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #b64400;
+}
+.apple-chapter-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  color: #1d1d1f;
+}
+.apple-kicker {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+  line-height: 1.1;
+}
+
+/* ===== Encrypt hover effect ===== */
+.encrypt-text {
+  font-variant-ligatures: none;
+  transition: filter 0.2s;
+}
+
+/* ===== Tilt 3D helper ===== */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ===== Scroll snap for Riesgos ===== */
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-center { scroll-snap-align: center; }
+.snap-start { scroll-snap-align: start; }
+
+/* ===== Timeline horizontal ===== */
+.timeline-track {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d6d6 transparent;
+}
+.timeline-track::-webkit-scrollbar { height: 6px; }
+.timeline-track::-webkit-scrollbar-thumb { background: #d6d6d6; border-radius: 999px; }
+
+/* ===== Details/Summary (glossary) ===== */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+/* ===== DARK MODE — Apple dark ( #000 / #1c1c1e ) ===== */
+html.dark {
+  color-scheme: dark;
+}
+html.dark body {
+  background: #000000;
+  color: #f5f5f7;
+}
+/* Overrides for hardcoded light colors */
+html.dark .bg-\[\#ffffff\] { background-color: #1c1c1e !important; }
+html.dark .bg-\[\#f5f5f7\] { background-color: #1c1c1e !important; }
+html.dark .bg-\[\#fafafc\] { background-color: #1c1c1e !important; }
+html.dark .bg-\[\#e8e8ed\] { background-color: #2c2c2e !important; }
+html.dark .bg-\[\#f5f5f7\]\/50 { background-color: rgba(28,28,30,0.5) !important; }
+html.dark .bg-\[\#d6d6d6\] { background-color: #3a3a3c !important; }
+html.dark .bg-\[\#d6d6d6\]\/40 { background-color: rgba(58,58,60,0.4) !important; }
+html.dark .bg-\[\#fff4e6\] { background-color: #2c2216 !important; border-color: #3d2e1a !important; }
+html.dark .bg-\[\#b64400\] { background-color: #ff9f0a !important; }
+html.dark .bg-\[\#777779\] { background-color: #48484a !important; }
+html.dark .bg-\[\#0077ED\] { background-color: #0a84ff !important; }
+html.dark .text-\[\#1d1d1f\] { color: #f5f5f7 !important; }
+html.dark .text-\[\#474747\] { color: #a1a1a6 !important; }
+html.dark .text-\[\#707070\] { color: #86868b !important; }
+html.dark .border-\[\#d6d6d6\] { border-color: #38383a !important; }
+html.dark .border-\[\#d6d6d6\]\/40 { border-color: rgba(56,56,58,0.4) !important; }
+html.dark .border-\[\#d6d6d6\]\/60 { border-color: rgba(56,56,58,0.6) !important; }
+html.dark .border-\[\#f0e4d3\] { border-color: #3d2e1a !important; }
+html.dark .text-\[\#0071e3\] { color: #0a84ff !important; }
+html.dark .bg-\[\#0071e3\] { background-color: #0a84ff !important; }
+html.dark .text-\[\#0066cc\] { color: #409cff !important; }
+html.dark .bg-\[\#1d1d1f\] { background-color: #f5f5f7 !important; color: #000 !important; }
+html.dark .text-white { color: #f5f5f7 !important; }
+html.dark .bg-paper { background-color: #1c1c1e !important; }
+html.dark .bg-\[\#1d1d1f\].text-white { color: #000 !important; }
+html.dark span.bg-paper { background-color: #2c2c2e !important; }
+html.dark .text-\[\#b64400\] { color: #ff9f0a !important; }
+html.dark .text-\[\#1d1d1f\]\/60 { color: rgba(245,245,247,0.6) !important; }
+html.dark .text-\[\#1d1d1f\]\/80 { color: rgba(245,245,247,0.8) !important; }
+html.dark .bg-\[\#f5f5f7\].text-\[\#1d1d1f\] { color: #a1a1a6 !important; }
+html.dark .apple-glass { background: rgba(28,28,30,0.6) !important; border-color: rgba(255,255,255,0.08) !important; }
+html.dark .apple-glass-card { background: rgba(28,28,30,0.72) !important; border-color: rgba(56,56,58,0.6) !important; }
+html.dark .bento-card { background: #1c1c1e !important; }
+
+/* Pastel swatches — 9 riesgos */
+.riesgo-bg-sky { background-color: #c8d8e0; }
+.riesgo-bg-citrus { background-color: #dddc8c; }
+.riesgo-bg-starlight { background-color: #f0e4d3; }
+.riesgo-bg-blush { background-color: #e8d0d0; }
+.riesgo-bg-silver { background-color: #e3e4e5; }
+.riesgo-bg-hairline { background-color: #d6d6d6; }
+.pri-color-sky { background-color: #c8d8e0; }
+.pri-color-citrus { background-color: #dddc8c; }
+.pri-color-starlight { background-color: #f0e4d3; }
+.pri-color-blush { background-color: #e8d0d0; }
+.pri-color-silver { background-color: #e3e4e5; }
+
+html.dark .riesgo-bg-sky { background-color: #263a4a !important; }
+html.dark .riesgo-bg-citrus { background-color: #3d3d2a !important; }
+html.dark .riesgo-bg-starlight { background-color: #3a352a !important; }
+html.dark .riesgo-bg-blush { background-color: #3d2a33 !important; }
+html.dark .riesgo-bg-silver { background-color: #2e2e30 !important; }
+html.dark .riesgo-bg-hairline { background-color: #3a3a3c !important; }
+html.dark .pri-color-sky { background-color: #2a3e4f !important; }
+html.dark .pri-color-citrus { background-color: #3a3828 !important; }
+html.dark .pri-color-starlight { background-color: #3a352a !important; }
+html.dark .pri-color-blush { background-color: #3a2a33 !important; }
+html.dark .pri-color-silver { background-color: #2e2e30 !important; }
+
+html.dark .riesgo-bg-sky,
+html.dark .riesgo-bg-citrus,
+html.dark .riesgo-bg-starlight,
+html.dark .riesgo-bg-blush,
+html.dark .riesgo-bg-silver,
+html.dark .riesgo-bg-hairline { color: #f5f5f7; }
+html.dark .riesgo-bg-sky .text-\[\#1d1d1f\],
+html.dark .riesgo-bg-citrus .text-\[\#1d1d1f\],
+html.dark .riesgo-bg-starlight .text-\[\#1d1d1f\],
+html.dark .riesgo-bg-blush .text-\[\#1d1d1f\],
+html.dark .riesgo-bg-silver .text-\[\#1d1d1f\],
+html.dark .riesgo-bg-hairline .text-\[\#1d1d1f\] { color: #f5f5f7 !important; }
+html.dark .riesgo-bg-sky .text-\[\#1d1d1f\]\/60,
+html.dark .riesgo-bg-citrus .text-\[\#1d1d1f\]\/60,
+html.dark .riesgo-bg-starlight .text-\[\#1d1d1f\]\/60,
+html.dark .riesgo-bg-blush .text-\[\#1d1d1f\]\/60,
+html.dark .riesgo-bg-silver .text-\[\#1d1d1f\]\/60,
+html.dark .riesgo-bg-hairline .text-\[\#1d1d1f\]\/60 { color: rgba(245,245,247,0.7) !important; }
+html.dark .riesgo-bg-sky .text-\[\#1d1d1f\]\/80,
+html.dark .riesgo-bg-citrus .text-\[\#1d1d1f\]\/80,
+html.dark .riesgo-bg-starlight .text-\[\#1d1d1f\]\/80,
+html.dark .riesgo-bg-blush .text-\[\#1d1d1f\]\/80,
+html.dark .riesgo-bg-silver .text-\[\#1d1d1f\]\/80,
+html.dark .riesgo-bg-hairline .text-\[\#1d1d1f\]\/80 { color: rgba(245,245,247,0.85) !important; }
+html.dark .riesgo-bg-sky .text-\[\#0066cc\],
+html.dark .riesgo-bg-citrus .text-\[\#0066cc\],
+html.dark .riesgo-bg-starlight .text-\[\#0066cc\],
+html.dark .riesgo-bg-blush .text-\[\#0066cc\],
+html.dark .riesgo-bg-silver .text-\[\#0066cc\],
+html.dark .riesgo-bg-hairline .text-\[\#0066cc\] { color: #5ac8ff !important; }
+html.dark .riesgo-bg-sky .bg-paper,
+html.dark .riesgo-bg-citrus .bg-paper,
+html.dark .riesgo-bg-starlight .bg-paper,
+html.dark .riesgo-bg-blush .bg-paper,
+html.dark .riesgo-bg-silver .bg-paper,
+html.dark .riesgo-bg-hairline .bg-paper { background-color: #1c1c1e !important; border-color: #38383a !important; }
+html.dark .riesgo-bg-sky .bg-paper .text-\[\#474747\],
+html.dark .riesgo-bg-citrus .bg-paper .text-\[\#474747\],
+html.dark .riesgo-bg-starlight .bg-paper .text-\[\#474747\],
+html.dark .riesgo-bg-blush .bg-paper .text-\[\#474747\],
+html.dark .riesgo-bg-silver .bg-paper .text-\[\#474747\],
+html.dark .riesgo-bg-hairline .bg-paper .text-\[\#474747\] { color: #a1a1a6 !important; }
+html.dark .riesgo-bg-sky .bg-paper .text-\[\#0071e3\],
+html.dark .riesgo-bg-citrus .bg-paper .text-\[\#0071e3\],
+html.dark .riesgo-bg-starlight .bg-paper .text-\[\#0071e3\],
+html.dark .riesgo-bg-blush .bg-paper .text-\[\#0071e3\],
+html.dark .riesgo-bg-silver .bg-paper .text-\[\#0071e3\],
+html.dark .riesgo-bg-hairline .bg-paper .text-\[\#0071e3\] { color: #0a84ff !important; }
+html.dark thead.bg-\[\#f5f5f7\] { background-color: #2c2c2e !important; }
+html.dark tbody .hover\:bg-\[\#f5f5f7\]\/50:hover { background-color: rgba(44,44,46,0.5) !important; }
+html.dark .bg-\[\#f5f5f7\]\/50 { background-color: rgba(44,44,46,0.5) !important; }
+html.dark .bg-\[\#f5f5f7\].text-\[\#1d1d1f\] { background-color: #2c2c2e !important; color: #f5f5f7 !important; }
+html.dark .px-3.py-1\.5.bg-paper { background-color: #2c2c2e !important; }
+html.dark .bg-paper.border { background-color: #2c2c2e !important; border-color: #38383a !important; }
+html.dark img { filter: brightness(0.92) contrast(1.02); }
+html.dark .apple-nav.bg-\[\#ffffff\]\/80 { background-color: rgba(0,0,0,0.8) !important; }
+html.dark .apple-nav.bg-\[\#fafafc\]\/85 { background-color: rgba(28,28,30,0.85) !important; }
+html.dark header.border-transparent { border-color: rgba(56,56,58,0.2) !important; }
+html.dark footer.bg-\[\#f5f5f7\] { background-color: #1c1c1e !important; }
+html.dark footer .border-\[\#d6d6d6\] { border-color: #38383a !important; }
+.phishing-box { background: #fff; }
+.phishing-box.phishing-bad { background: #fef2f0; border-color: #e6a8a4; }
+.phishing-box.phishing-good { background: #eef6ee; border-color: #9ec99e; }
+.phishing-result.phishing-ok { background: #eef6ee; border-color: #9ec99e; color: #145623; }
+.phishing-result.phishing-error { background: #fef2f0; border-color: #e6a8a4; color: #7a1a14; }
+html.dark .phishing-box.phishing-bad { background: #3a2220 !important; border-color: #5a2e2b !important; }
+html.dark .phishing-box.phishing-good { background: #1f2e1f !important; border-color: #2d4a2d !important; }
+html.dark .phishing-result.phishing-ok { background: #1f2e1f !important; border-color: #2d4a2d !important; color: #a8d5a8 !important; }
+html.dark .phishing-result.phishing-error { background: #3a2220 !important; border-color: #5a2e2b !important; color: #e8a8a4 !important; }
+html.dark .phishing-box .text-\[\#1d1d1f\] { color: #f5f5f7 !important; }
+html.dark .phishing-box .text-\[\#474747\] { color: #c8c8c8 !important; }
+html.dark .text-\[\#0066cc\].hover\:underline:hover { color: #409cff !important; }
+html.dark .border-\[\#1d1d1f\] { border-color: #48484a !important; }

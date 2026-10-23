@@ -1,0 +1,10 @@
+*.pdf binary
+*.PDF binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.svg text eol=lf
+*.mp4 binary
+*.mp3 binary
