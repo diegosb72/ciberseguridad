@@ -33,25 +33,8 @@
       })();
     </script>
     <style>html.dark{color-scheme:dark}html{color-scheme:light}</style>
-    <script>
-      // EMERGENCY SW WIPE: Si la app falla al cargar, destruye el SW y recarga.
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-          }
-        });
-        caches.keys().then(function(names) {
-          for (let name of names) {
-            if (name.includes('vite') || name.includes('workbox')) {
-              caches.delete(name);
-            }
-          }
-        });
-      }
-    </script>
-    <script type="module" crossorigin src="/ciberseguridad/assets/index-D9wKIFnL.js"></script>
-    <link rel="stylesheet" crossorigin href="/ciberseguridad/assets/index-aMDAsowf.css">
+    <script type="module" crossorigin src="/ciberseguridad/assets/index-Dx5N49Mr.js"></script>
+    <link rel="stylesheet" crossorigin href="/ciberseguridad/assets/index-Dz_6_a03.css">
   <link rel="manifest" href="/ciberseguridad/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/ciberseguridad/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
