@@ -43,7 +43,12 @@ export default function Recursos() {
   const [filtro, setFiltro] = useState('Todos')
   const [glossaryHover, setGlossaryHover] = useState(null)
   const [busqueda, setBusqueda] = useState('')
-  const recursosFiltrados = recursos.filter(r => r.titulo.toLowerCase().includes(busqueda.toLowerCase()) || r.desc.toLowerCase().includes(busqueda.toLowerCase()))
+  const recursosFiltrados = recursos.filter(r => {
+    const titulo = (r.titulo ?? r.title ?? '').toLowerCase()
+    const desc = (r.desc ?? '').toLowerCase()
+    const q = busqueda.toLowerCase()
+    return titulo.includes(q) || desc.includes(q)
+  })
   const filtrados = filtro === 'Todos' ? recursosFiltrados : recursosFiltrados.filter(r => r.tag === filtro || r.tipo === filtro || (filtro==='Vídeo' && r.tag==='Vídeo'))
 
   return (

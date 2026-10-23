@@ -1,14 +1,11 @@
 import { useState, useMemo } from 'react'
 import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common'
-import * as zxcvbnEsPackage from '@zxcvbn-ts/language-es'
 
-// Configuración global del diccionario (se ejecuta una vez)
 zxcvbnOptions.setOptions({
   dictionary: {
     ...zxcvbnCommonPackage.dictionary,
-    ...zxcvbnEsPackage.dictionary,
-    words: ['IES', 'Manuel', 'Falla', 'Mostoles', '2026', 'EducaMadrid']
+    words: ['IES', 'Manuel', 'Falla', 'Mostoles', '2026', 'EducaMadrid', 'contraseña', 'password']
   }
 })
 
