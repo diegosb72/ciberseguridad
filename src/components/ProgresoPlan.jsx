@@ -36,8 +36,8 @@ export default function ProgresoPlan(){
           </div>
         </div>
 
-        <div className="mt-6 h-2 rounded-full bg-canvas dark:bg-[#000000] overflow-hidden border border-hairline/40 dark:border-white/10">
-          <div className="h-full bg-electric-blue transition-all duration-700" style={{ width: `${pct}%` }}/>
+        <div role="progressbar" aria-label="Progreso del Plan — 22 medidas" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} className="mt-6 h-2 rounded-full bg-canvas dark:bg-[#000000] overflow-hidden border border-hairline/40 dark:border-white/10">
+          <div className="h-full bg-[#0056b3] dark:bg-[#4da3ff] transition-all duration-700" style={{ width: `${pct}%` }}/>
         </div>
 
         <div className="mt-6 rounded-[20px] bg-canvas dark:bg-[#000000] p-3 overflow-hidden">

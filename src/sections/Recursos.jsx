@@ -25,17 +25,17 @@ import { FilePdf, Video, Globe, GameController, ShieldCheck, DownloadSimple, Fun
 import LiteYouTube from '../components/LiteYouTube'
 
 const recursos = [
-  { title: 'Guía Herramientas Control Parental', desc: 'PDF oficial con fichas por sistema. Qué filtra cada herramienta y cómo activarla.', href: 'https://www.incibe.es/sites/default/files/contenidos/is4k_guia_controles_parentales.pdf', tag: 'PDF', icon: FilePdf, color: '#b00020' },
-  { title: 'Guía Mediación Parental — INCIBE', desc: 'Normas pactadas y qué hacer si hay problema. El acuerdo que usamos como base.', href: 'https://www.incibe.es/sites/default/files/contenidos/materiales/Campanas/is4k-guiamediaci%C3%B3nparental.pdf', tag: 'Guía', icon: ShieldCheck, color: '#0066cc' },
-  { title: 'Actividades interactivas INCIBE', desc: '7 casos de ingeniería social y camino seguro. Ideal para tutoría 10′.', href: 'https://www.incibe.es/ciudadania/formacion/actividades', tag: 'Interactivo', icon: GameController, color: '#0071e3' },
-  { title: 'Tests IS4K', desc: 'Ciberseguridad en plataformas educativas. Ponte a prueba después del simulacro.', href: 'https://www.incibe.es/menores/juegos/tests/', tag: 'Test', icon: ShieldCheck, color: '#b64400' },
-  { title: 'IS4K YouTube', desc: 'Canal con vídeos de grooming, sexting y más. Lista lista para tutoría.', href: 'https://www.youtube.com/c/InternetSeguraforKids/videos', tag: 'Vídeo', icon: Video, color: '#ff0000' },
-  { title: 'Catálogo Control Parental', desc: 'Todas las herramientas por dispositivo, comparadas. Family Link, Tiempo de Uso, MS Family.', href: 'https://www.incibe.es/menores/recursos/control-parental', tag: 'Web', icon: Globe, color: '#1d1d1f' },
+  { title: 'Guía Herramientas Control Parental', desc: 'PDF oficial con fichas por sistema. Qué filtra cada herramienta y cómo activarla.', href: 'https://www.incibe.es/menores', tag: 'PDF', icon: FilePdf, color: '#b00020' },
+  { title: 'Guía Mediación Parental — INCIBE', desc: 'Normas pactadas y qué hacer si hay problema. El acuerdo que usamos como base.', href: 'https://www.incibe.es/menores', tag: 'Guía', icon: ShieldCheck, color: '#0066cc' },
+  { title: 'Actividades interactivas INCIBE', desc: '7 casos de ingeniería social y camino seguro. Ideal para tutoría 10′.', href: 'https://www.incibe.es/formacion', tag: 'Interactivo', icon: GameController, color: '#0071e3' },
+  { title: 'Tests IS4K', desc: 'Ciberseguridad en plataformas educativas. Ponte a prueba después del simulacro.', href: 'https://www.incibe.es/menores', tag: 'Test', icon: ShieldCheck, color: '#b64400' },
+  { title: 'IS4K YouTube', desc: 'Canal con vídeos de grooming, sexting y más. Listo para usar en tutoría.', href: 'https://www.youtube.com/c/InternetSeguraforKids/videos', tag: 'Vídeo', icon: Video, color: '#ff0000' },
+  { title: 'Catálogo Control Parental', desc: 'Todas las herramientas por dispositivo, comparadas. Family Link, Tiempo de Uso, MS Family.', href: 'https://www.incibe.es/menores/recursos/control-parental', tag: 'Herramienta', icon: Globe, color: '#1d1d1f' },
   { title: 'Have I Been Pwned', desc: 'Comprueba si tu correo o contraseñas han sido comprometidos en brechas de seguridad. Oficial y gratuito.', href: 'https://haveibeenpwned.com/', icon: ShieldCheck, color: '#0066cc', tipo: 'Herramienta', tiempo: '1 min', nuevo: true },
   { title: 'VirusTotal', desc: 'Analiza archivos sospechosos o URLs con más de 70 antivirus. Gratis y sin registro.', href: 'https://www.virustotal.com/', icon: Bug, color: '#1d1d1f', tipo: 'Herramienta', tiempo: '2 min', nuevo: true },
   { title: 'Mozilla Observatory', desc: 'Analiza la seguridad de cualquier página web. Ideal para verificar sitios sospechosos.', href: 'https://observatory.mozilla.org/', icon: Globe, color: '#0066cc', tipo: 'Herramienta', tiempo: '2 min', nuevo: true },
   { title: 'Password Monster', desc: 'Comprueba cuánto tardaría en crackearse tu contraseña. Educativo y sin guardar datos.', href: 'https://www.passwordmonster.com/', icon: Key, color: '#b64400', tipo: 'Herramienta', tiempo: '1 min', nuevo: true },
-  { title: 'INCIBE - Guía de contraseñas seguras', desc: 'Cómo crear y gestionar contraseñas fuertes. Guía oficial con ejemplos prácticos.', href: 'https://www.incibe.es/empresas/fichas/contrasenas-seguras', icon: FileText, color: '#0071e3', tipo: 'Guía', tiempo: '5 min' },
+  { title: 'INCIBE - Guía de contraseñas seguras', desc: 'Cómo crear y gestionar contraseñas fuertes. Guía oficial con ejemplos prácticos.', href: 'https://www.incibe.es/empresas/ciberseguridad-empresas', icon: FileText, color: '#0071e3', tipo: 'Guía', tiempo: '5 min' },
   { title: 'Phishing Quiz de Google', desc: 'Pon a prueba tu capacidad para detectar phishing con este quiz interactivo oficial de Google.', href: 'https://phishingquiz.withgoogle.com/', icon: GameController, color: '#0066cc', tipo: 'Interactivo', tiempo: '5 min', nuevo: true },
   { title: '2FA Directory', desc: 'Directorio de servicios que soportan autenticación en dos pasos. Comprueba los tuyos.', href: 'https://2fa.directory/', icon: LockKey, color: '#1d1d1f', tipo: 'Herramienta', tiempo: '2 min', nuevo: true },
   { title: 'URLScan.io', desc: 'Analiza URLs sospechosas sin visitarlas. Te dice a dónde redirigen y si son maliciosas.', href: 'https://urlscan.io/', icon: LinkIcon, color: '#0066cc', tipo: 'Herramienta', tiempo: '2 min', nuevo: true },
@@ -47,9 +47,9 @@ const videos = [
 ]
 
 const juegos = [
-  { title: 'Gana al Hacker', desc: 'Generalitat de Catalunya — 12 retos para mejorar ciber-capacidades 12-16 años. Muy valorado por docentes.', href: 'https://www.cyber-secure.cat/', tag: 'Juego · 12-16', color: '#0066cc', icon: Trophy },
+  { title: 'Gana al Hacker', desc: 'Generalitat de Catalunya — 12 retos para mejorar ciber-capacidades 12-16 años. Muy valorado por docentes.', href: 'https://ciberseguretat.gencat.cat/es/ciutadania/activitats-interactives/guanya-el-hacker', tag: 'Juego · 12-16', color: '#0066cc', icon: Trophy },
   { title: 'Interland de Google', desc: '4 mini-juegos visuales: Sé inteligente, Alerta, Fortaleza, Amabilidad. 8-12 años, sin cuenta.', href: 'https://beinternetawesome.withgoogle.com/es_es/interland', tag: 'Juego · 8-12', color: '#0071e3', icon: GameController },
-  { title: 'Digi Guardians', desc: 'Protege una casa virtual de ciberataques respondiendo sobre contraseñas y privacidad. Inmersivo.', href: 'https://www.incibe.es/menores/juegos', tag: 'Simulador', color: '#1d1d1f', icon: ShieldCheck },
+  { title: 'Digi Guardians', desc: 'Protege una casa virtual de ciberataques respondiendo sobre contraseñas y privacidad. Inmersivo.', href: 'https://www.incibe.es/menores', tag: 'Simulador', color: '#1d1d1f', icon: ShieldCheck },
 ]
 
 const filtros = ['Todos', 'PDF', 'Guía', 'Vídeo', 'Interactivo', 'Test', 'Herramienta']
@@ -196,8 +196,8 @@ export default function Recursos() {
                 <div className="text-[11px] font-semibold tracking-[0.06em] text-primary-ink dark:text-[#f5f5f7]">KIT DE CONCIENCIACIÓN · INCIBE</div>
               </div>
               <ul className="mt-3 space-y-2 text-[13px] leading-5 text-deep-gray dark:text-[#a1a1a6] list-disc pl-4">
-                <li><a href="https://www.incibe.es/menores/materiales" target="_blank" rel="noreferrer" className="text-link-blue hover:underline">Materiales didácticos IS4K</a> — unidades, CyberTasks, fichas imprimibles</li>
-                <li><a href="https://www.incibe.es/ciudadania/formacion/actividades" target="_blank" rel="noreferrer" className="text-link-blue hover:underline">Talleres online grabados</a> — Internet Seguro 2025, etc.</li>
+                <li><a href="https://www.incibe.es/menores" target="_blank" rel="noreferrer" className="text-link-blue hover:underline">Materiales didácticos IS4K</a> — unidades, CyberTasks, fichas imprimibles</li>
+                <li><a href="https://www.incibe.es/formacion" target="_blank" rel="noreferrer" className="text-link-blue hover:underline">Talleres online grabados</a> — Internet Seguro 2025, etc.</li>
                 <li><a href="https://www.aepd.es/" target="_blank" rel="noreferrer" className="text-link-blue hover:underline">Plantillas AEPD brechas</a> para Protocolo 72h</li>
               </ul>
             </div>

@@ -51,7 +51,7 @@ const HERO_BY_PERFIL = {
     cta2: 'Ficha Anexo B ↓',
     cta2href: '#protocolo',
     cardKicker: 'PARA PROFESORADO',
-    cardTitle: 'Si pasa algo, así se actúa.',
+    cardTitle: 'Si pasa algo, actúa así. Sin improvisar.',
     cardDesc: 'Detectar, contener, erradicar, recuperar, comunicar y aprender. Aísla el equipo, no destruyas evidencias y avisa a TIC/017.',
     badge2: 'PROTOCOLO',
     img: 'assets/abstract-apple.jpg',
@@ -120,9 +120,9 @@ export default function Hero({ perfil = 'alumnado' }) {
                 </h2>
                 <p className="mt-4 text-[15px] sm:text-[17px] leading-6 text-deep-gray dark:text-[#a1a1a6] max-w-[520px]">{cfg.cardDesc}</p>
                 <div className="mt-6 flex flex-wrap gap-2 text-[12px]">
-                  <span className="px-3 py-1.5 rounded-full bg-paper dark:bg-[#2c2c2e] border border-hairline dark:border-[#38383a] text-primary-ink dark:text-white font-medium">Phishing · bloqueado</span>
-                  <span className="px-3 py-1.5 rounded-full bg-paper dark:bg-[#2c2c2e] border border-hairline dark:border-[#38383a] text-primary-ink dark:text-white font-medium">Ransomware · copias OK</span>
-                  <span className="px-3 py-1.5 rounded-full bg-paper dark:bg-[#2c2c2e] border border-hairline dark:border-[#38383a] text-primary-ink dark:text-white font-medium">Cuentas · revisadas</span>
+                  <span className="px-3 py-1.5 rounded-full bg-paper dark:bg-[#2c2c2e] border border-hairline dark:border-[#38383a] text-primary-ink dark:text-white font-medium">Phishing: aprende a cazarlo</span>
+                  <span className="px-3 py-1.5 rounded-full bg-paper dark:bg-[#2c2c2e] border border-hairline dark:border-[#38383a] text-primary-ink dark:text-white font-medium">Ransomware: haz copias</span>
+                  <span className="px-3 py-1.5 rounded-full bg-paper dark:bg-[#2c2c2e] border border-hairline dark:border-[#38383a] text-primary-ink dark:text-white font-medium">Cuentas: revísalas</span>
                 </div>
                 <a href="#dispositivos" className="mt-6 inline-flex text-[14px] font-medium text-link-blue dark:text-[#409cff] hover:underline underline-offset-4 focus-visible:rounded">Tu equipo a punto ›</a>
               </div>

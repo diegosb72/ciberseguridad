@@ -1,13 +1,18 @@
 import { useState, useMemo } from 'react'
-import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
+import { ZxcvbnFactory } from '@zxcvbn-ts/core'
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common'
 
-zxcvbnOptions.setOptions({
+const zxcvbnFactory = new ZxcvbnFactory({
   dictionary: {
     ...zxcvbnCommonPackage.dictionary,
     words: ['IES', 'Manuel', 'Falla', 'Mostoles', '2026', 'EducaMadrid', 'contraseña', 'password']
-  }
+  },
+  graphs: zxcvbnCommonPackage.adjacencyGraphs,
 })
+
+function zxcvbn(val) {
+  return zxcvbnFactory.check(val)
+}
 
 export default function FortalezaPass() {
   const [val, setVal] = useState('')

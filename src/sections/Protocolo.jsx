@@ -35,7 +35,7 @@ export default function Protocolo() {
           <div className="text-center">
             <div className="apple-chapter-label">CAPÍTULO 2 — PROTOCOLO</div>
             <h2 id="protocolo-title" className="apple-chapter-title mt-2">
-              Si pasa algo,<br/><span className="font-light">así basta actuar.</span>
+              Si pasa algo,<br/><span className="font-light">actúa así. Sin improvisar.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-[640px] text-[17px] leading-6 text-deep-gray dark:text-[#a1a1a6]">6 pasos claros del Plan. No improvises: sigue el orden y no borres nada. Cada paso tiene una sola misión.</p>
           </div>

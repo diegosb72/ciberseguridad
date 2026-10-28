@@ -45,9 +45,9 @@ export default function Quiz() {
               <div className="rounded-[20px] bg-paper dark:bg-[#1c1c1e] overflow-hidden">
                 <div className="px-6 py-4 flex justify-between items-center" role="status" aria-live="polite">
                   <span className="text-[12px] font-semibold tracking-[0.06em] text-mid-gray">PREGUNTA {i+1} / {shuffled.length}</span>
-                  <span className="px-3 py-1 rounded-full bg-primary-ink text-white text-[12px] font-medium" aria-label={`${score} aciertos`}>{score} aciertos</span>
+                  <span className="px-3 py-1 rounded-full bg-primary-ink text-white text-[12px] font-medium" aria-label={`${score} ${score===1 ? "acierto" : "aciertos"}`}>{score} {score===1 ? "acierto" : "aciertos"}</span>
                 </div>
-                <div className="h-[2px] bg-hairline" role="progressbar" aria-valuenow={i} aria-valuemin={0} aria-valuemax={shuffled.length}><motion.div initial={{width:0}} animate={{width:`${(i/shuffled.length)*100}%`}} className="h-full bg-electric-blue" /></div>
+                <div className="h-[2px] bg-hairline" role="progressbar" aria-label="Progreso del quiz" aria-valuenow={i} aria-valuemin={0} aria-valuemax={shuffled.length}><motion.div initial={{width:0}} animate={{width:`${(i/shuffled.length)*100}%`}} className="h-full bg-[#0056b3] dark:bg-[#4da3ff]" /></div>
                 <div className="p-6 md:p-8">
                   <h3 className="text-[17px] leading-6 font-medium text-primary-ink dark:text-[#f5f5f7]" id={`q-${i}`}>{cur.q}</h3>
                   <div className="mt-6 space-y-3" role="radiogroup" aria-labelledby={`q-${i}`}>

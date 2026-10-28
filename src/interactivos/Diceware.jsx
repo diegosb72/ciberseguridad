@@ -45,18 +45,18 @@ export default function Diceware(){
         <div className="mt-3 flex gap-2 justify-center flex-wrap">
           <button onClick={()=> setWords(randomWords(4))} className="px-4 py-2 rounded-full bg-primary-ink text-white text-[12px] font-medium">Nueva frase</button>
           <button onClick={copy} className="px-4 py-2 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-primary-ink dark:text-[#f5f5f7] text-[12px]">Copiar</button>
-          <select value={sep} onChange={e=> setSep(e.target.value)} className="px-3 py-2 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-[12px]">
+          <select aria-label="Separador entre palabras de la frase contraseña" value={sep} onChange={e=> setSep(e.target.value)} className="px-3 py-2 rounded-full bg-paper dark:bg-[#1c1c1e] border border-hairline dark:border-white/10 text-[12px]">
             <option value="-">-</option><option value=" ">espacio</option><option value="">sin</option><option value="_">_</option>
           </select>
         </div>
         <div className="mt-4 grid grid-cols-2 gap-2 text-[11px]">
           <div className="rounded-[12px] bg-canvas dark:bg-[#000000] p-3 text-center">
             <div className="font-semibold text-primary-ink dark:text-[#f5f5f7]">Tiempo crackeo</div>
-            <div className="text-electric-blue font-mono font-medium">{crack}</div>
+            <div className="text-[#0056b3] dark:text-[#4da3ff] font-mono font-medium">{crack}</div>
           </div>
           <div className="rounded-[12px] bg-canvas dark:bg-[#000000] p-3 text-center">
             <div className="font-semibold text-primary-ink dark:text-[#f5f5f7]">Longitud</div>
-            <div className="text-electric-blue font-mono">{phrase.length} car.</div>
+            <div className="text-[#0056b3] dark:text-[#4da3ff] font-mono">{phrase.length} car.</div>
           </div>
         </div>
         <p className="mt-3 text-[11px] leading-4 text-mid-gray text-center">Añade un número o símbolo solo si te lo pide el servicio. Con MFA, esta frase es excelente.</p>

@@ -133,7 +133,7 @@ export default function Familia() {
           <AnimatedItem>
             <TiltCard className="rounded-[28px] bg-paper dark:bg-[#1c1c1e] p-6 flex flex-col h-full border border-hairline/30 dark:border-white/10">
               <DeviceMobile size={20} weight="duotone" className="text-link-blue" aria-hidden="true" />
-              <h4 className="mt-3 text-[17px] font-semibold text-primary-ink dark:text-[#f5f5f7]">Google Family Link</h4>
+              <h3 className="mt-3 text-[17px] font-semibold text-primary-ink dark:text-[#f5f5f7]">Google Family Link</h3>
               <p className="mt-2 text-[14px] leading-5 text-deep-gray dark:text-[#a1a1a6] flex-1">Para Android y Chromebook. Filtros web, tiempo por app, ubicación y bloqueo remoto. Gratis. Explícales siempre por qué lo instaláis.</p>
               <a href="https://www.incibe.es/menores/recursos/control-parental" target="_blank" rel="noreferrer" className="mt-4 text-[12px] font-medium text-link-blue">Guía INCIBE ›</a>
             </TiltCard>
@@ -141,7 +141,7 @@ export default function Familia() {
           <AnimatedItem>
             <TiltCard className="rounded-[28px] bg-starlight p-6 flex flex-col h-full border border-[#f0e4d3]">
               <Clock size={20} weight="duotone" className="text-ember" aria-hidden="true" />
-              <h4 className="mt-3 text-[17px] font-semibold text-primary-ink dark:text-[#f5f5f7]">Tiempo de Uso · iPhone/iPad</h4>
+              <h3 className="mt-3 text-[17px] font-semibold text-primary-ink dark:text-[#f5f5f7]">Tiempo de Uso · iPhone/iPad</h3>
               <p className="mt-2 text-[14px] leading-5 text-deep-gray dark:text-[#a1a1a6] flex-1">Límites por app con código de acceso. Cuidado con el truco «Pedir más tiempo»: si el menor sabe el código, puede aplazar el bloqueo.</p>
               <a href="#aviso-ios" className="mt-4 text-[12px] font-medium text-link-blue">Ver truco ›</a>
             </TiltCard>
@@ -149,7 +149,7 @@ export default function Familia() {
           <AnimatedItem>
             <TiltCard className="rounded-[28px] bg-paper dark:bg-[#1c1c1e] p-6 flex flex-col h-full border border-hairline/30 dark:border-white/10">
               <YoutubeLogo size={20} weight="duotone" className="text-[#ff0000]" aria-hidden="true" />
-              <h4 className="mt-3 text-[17px] font-semibold text-primary-ink dark:text-[#f5f5f7]">YouTube + DNS</h4>
+              <h3 className="mt-3 text-[17px] font-semibold text-primary-ink dark:text-[#f5f5f7]">YouTube + DNS</h3>
               <p className="mt-2 text-[14px] leading-5 text-deep-gray dark:text-[#a1a1a6] flex-1">Modo restringido + supervisión + DNS familiar (Cloudflare / CleanBrowsing) en el router.</p>
               <a href="https://www.incibe.es/menores/familias/control-parental/youtube" target="_blank" rel="noreferrer" className="mt-4 text-[12px] font-medium text-link-blue">Cómo activar ›</a>
             </TiltCard>
@@ -205,7 +205,7 @@ export default function Familia() {
                 </div>
                 <label className="block mt-4">
                   <span className="text-[12px] font-medium text-primary-ink dark:text-[#f5f5f7]">Normas extra (opcional, una por línea)</span>
-                  <textarea value={normasExtra} onChange={e=> setNormasExtra(e.target.value)} rows={3} placeholder="Ej: móvil fuera al comer; avisar si alguien pide fotos" className="mt-1 w-full rounded-[16px] border border-hairline dark:border-white/10 bg-paper dark:bg-[#1c1c1e] px-4 py-3 text-[14px] text-primary-ink dark:text-[#f5f5f7] placeholder:text-mid-gray focus:outline-none focus:border-action-blue resize-none" />
+                  <textarea value={normasExtra} onChange={e=> setNormasExtra(e.target.value)} rows={3} aria-label="Normas extra de la familia" placeholder="Ej: móvil fuera al comer; avisar si alguien pide fotos" className="mt-1 w-full rounded-[16px] border border-hairline dark:border-white/10 bg-paper dark:bg-[#1c1c1e] px-4 py-3 text-[14px] text-primary-ink dark:text-[#f5f5f7] placeholder:text-mid-gray focus:outline-none focus:border-action-blue resize-none" />
                 </label>
               </div>
 
@@ -265,5 +265,6 @@ export default function Familia() {
 }
 
 function L({ label, v, onChange, ph }) {
-  return <label className="block"><span className="text-[12px] font-medium text-primary-ink dark:text-[#f5f5f7]">{label}</span><input value={v} onChange={onChange} placeholder={ph} className="mt-1 w-full rounded-full border border-hairline dark:border-white/10 bg-paper dark:bg-[#1c1c1e] px-4 py-2.5 text-[14px] text-primary-ink dark:text-[#f5f5f7] placeholder:text-mid-gray focus:outline-none focus:border-action-blue" /></label>
+  const id = 'acuerdo-' + label.toLowerCase().replace(/[^a-z0-9]+/g,'-')
+  return <label htmlFor={id} className="block"><span className="text-[12px] font-medium text-primary-ink dark:text-[#f5f5f7]">{label}</span><input id={id} value={v} onChange={onChange} placeholder={ph} aria-label={label} className="mt-1 w-full rounded-full border border-hairline dark:border-white/10 bg-paper dark:bg-[#1c1c1e] px-4 py-2.5 text-[14px] text-primary-ink dark:text-[#f5f5f7] placeholder:text-mid-gray focus:outline-none focus:border-action-blue" /></label>
 }

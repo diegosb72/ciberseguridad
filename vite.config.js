@@ -7,7 +7,7 @@ export default defineConfig({
   base: '/ciberseguridad/',
   plugins: [react(), tailwindcss(), VitePWA({
     registerType: 'autoUpdate',
-    includeAssets: ['favicon.svg','favicon-32.png','favicon-16.png','apple-touch-icon.png','pwa-192.png','pwa-512.png','assets/*.jpg','assets/*.svg'],
+    includeAssets: ['favicon.svg','favicon-32.png','favicon-16.png','apple-touch-icon.png','apple-touch-icon-180.png','pwa-192.png','pwa-512.png'],
     manifest: {
       name: 'Ciberseguridad IES Manuel de Falla',
       short_name: 'CiberFalla',
@@ -16,16 +16,23 @@ export default defineConfig({
       background_color: '#ffffff',
       display: 'standalone',
       start_url: '/ciberseguridad/',
+      scope: '/ciberseguridad/',
+      lang: 'es',
+      dir: 'ltr',
+      categories: ['education','security'],
       icons: [
-        { src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' },
-        { src: 'favicon-32.png', sizes: '32x32', type: 'image/png' },
-        { src: 'favicon-16.png', sizes: '16x16', type: 'image/png' },
-        { src: 'pwa-192.png', sizes: '192x192', type: 'image/png' },
-        { src: 'pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }
+        { src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+        { src: 'favicon-32.png', sizes: '32x32', type: 'image/png', purpose: 'any' },
+        { src: 'favicon-16.png', sizes: '16x16', type: 'image/png', purpose: 'any' },
+        { src: 'pwa-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: 'pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: 'pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
       ]
     },
     workbox: {
-      globPatterns: ['**/*.{js,css,html,svg,jpg,png,pdf}'],
+      globPatterns: ['**/*.{js,css,html,pdf,svg,png,jpg,webmanifest}'],
+      globIgnores: ['**/favicon.svg','**/favicon-32.png','**/favicon-16.png','**/apple-touch-icon.png','**/apple-touch-icon-180.png','**/pwa-192.png','**/pwa-512.png','**/manifest.webmanifest'],
+      dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
       runtimeCaching: [
         { urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i, handler: 'CacheFirst', options: { cacheName: 'google-fonts-cache', expiration: { maxEntries: 10, maxAgeSeconds: 60*60*24*365 } } },
         { urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i, handler: 'CacheFirst', options: { cacheName: 'gstatic-fonts-cache', expiration: { maxEntries: 10, maxAgeSeconds: 60*60*24*365 } } }

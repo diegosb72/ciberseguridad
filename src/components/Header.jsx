@@ -40,14 +40,14 @@ export default function Header() {
       <a href="#main" className="skip-link">Saltar al contenido principal</a>
       <div className="w-full bg-paper dark:bg-[#1d1d1f] text-center py-2 px-4 text-[11px] leading-4 text-primary-ink dark:text-[#f5f5f7] border-b border-hairline/30 dark:border-white/10">
         <span className="hidden sm:inline text-mid-gray">Línea gratuita y confidencial · </span>
-        <a href="tel:017" title="INCIBE 017 — también 900 116 117" aria-label="Llamar a INCIBE 017, ayuda gratuita 8 a 23 horas, también 900 116 117" className="font-medium text-link-blue hover:underline underline-offset-4 focus-visible:rounded">INCIBE <span className="font-semibold">017</span></a>
+        <a href="tel:017" title="INCIBE 017 — también 900 116 117" aria-label="Llamar a INCIBE 017, ayuda gratuita 8 a 23 horas, también 900 116 117" className="font-medium text-link-blue underline underline-offset-4 focus-visible:rounded">INCIBE <span className="font-semibold">017</span></a>
         <span aria-hidden="true" className="mx-1.5 text-hairline">·</span>
-        <a href="tel:900116117" title="INCIBE 900 116 117" aria-label="Llamar a INCIBE 900 116 117" className="hidden sm:inline font-medium text-link-blue hover:underline underline-offset-4 focus-visible:rounded">900 116 117</a>
+        <a href="tel:900116117" title="INCIBE 900 116 117" aria-label="Llamar a INCIBE 900 116 117" className="hidden sm:inline font-medium text-link-blue underline underline-offset-4 focus-visible:rounded">900 116 117</a>
         <span aria-hidden="true" className="hidden sm:inline mx-1.5 text-hairline">·</span>
-        <a href="tel:112" title="Emergencias 112 — solo si hay peligro físico" aria-label="Llamar a emergencias 112" className="font-medium text-link-blue hover:underline underline-offset-4 focus-visible:rounded">112 <span className="font-normal">Emergencias</span></a>
+        <a href="tel:112" title="Emergencias 112 — solo si hay peligro físico" aria-label="Llamar a emergencias 112" className="font-medium text-link-blue underline underline-offset-4 focus-visible:rounded">112 <span className="font-normal">Emergencias</span></a>
         <span className="mx-1.5 text-hairline" aria-hidden="true">·</span>
-        <span className="text-deep-gray dark:text-[#a1a1a6]">DPD <a href="tel:+34917204068" className="font-medium text-link-blue hover:underline focus-visible:rounded">91 720 4068</a></span>
-        <span className="hidden lg:inline text-mid-gray"> · Avda. Olímpica, 16 — Móstoles · 28028568</span>
+        <span className="text-deep-gray dark:text-[#a1a1a6]">DPD <a href="tel:+34917204068" className="font-medium text-link-blue underline underline-offset-4 focus-visible:rounded">91 720 4068</a></span>
+        <span className="hidden lg:inline text-mid-gray"> · Avda. Olímpica, 16 — 28935 Móstoles · 91 617 10 74</span>
       </div>
 
       <header

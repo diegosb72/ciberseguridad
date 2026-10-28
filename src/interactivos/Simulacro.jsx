@@ -59,7 +59,7 @@ export default function Simulacro(){
     <section className="bg-canvas dark:bg-[#000000]" aria-labelledby="sim-title">
       <div className="apple-shell apple-section">
         <div className="text-center">
-          <div className="text-[12px] font-semibold tracking-[0.06em] text-electric-blue">TUTORÍA 5′</div>
+          <div className="text-[12px] font-semibold tracking-[0.06em] text-[#0056b3] dark:text-[#4da3ff]">TUTORÍA 5′</div>
           <h2 id="sim-title" className="mt-2 text-[32px] md:text-[44px] font-semibold tracking-[-0.02em] text-primary-ink dark:text-[#f5f5f7] leading-none">Hackéame si puedes</h2>
           <p className="mx-auto mt-3 max-w-[560px] text-[14px] leading-6 text-deep-gray dark:text-[#a1a1a6]">Aventura encadenada. Tus decisiones cambian la historia. Todo en el navegador.</p>
         </div>

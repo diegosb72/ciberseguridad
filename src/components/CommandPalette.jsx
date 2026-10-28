@@ -11,7 +11,7 @@ const INDEX = [
   { id:'dispositivos', title:'Tu equipo — Checklist', desc:'Windows/macOS/iOS/Android', href:'#dispositivos', k:'equipo windows mac ios android' },
   { id:'familia', title:'Familia — Acuerdo', desc:'Mediación DNS familiar', href:'#familia', k:'familia acuerdo dns' },
   { id:'riesgos', title:'Riesgos — Phishing trainer', desc:'Malware, grooming, fake news', href:'#riesgos', k:'riesgos phishing malware' },
-  { id:'protocolo', title:'Protocolo — 6 fases', desc:'Si pasa algo, así se actúa', href:'#protocolo', k:'protocolo incidente 017 112' },
+  { id:'protocolo', title:'Protocolo — 6 fases', desc:'Si pasa algo, actúa así. Sin improvisar.', href:'#protocolo', k:'protocolo incidente 017 112' },
   { id:'quiz', title:'Test — ¿Te hackean?', desc:'6 preguntas phishing', href:'#quiz', k:'quiz test' },
   { id:'recursos', title:'Recursos — Guías INCIBE', desc:'Vídeos IS4K, glosario', href:'#recursos', k:'recursos incibe is4k' },
   { id:'tel-017', title:'Llamar 017', desc:'INCIBE ayuda 8-23h — 900 116 117', href:'tel:017', k:'017 incibe ayuda' },

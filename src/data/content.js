@@ -115,7 +115,7 @@ export const fases = [
 ]
 
 export const glosario = [
-  { k: "MFA", d: "Doble factor: contraseña + app/SMS/llave. Si te roban la pass, no entran." },
+  { k: "MFA / 2FA", d: "Doble factor: contraseña + app/SMS/llave. Si te roban la pass, no entran." },
   { k: "EDR", d: "Antivirus avanzado que vigila cada equipo y avisa al TIC si ve algo raro." },
   { k: "MDM", d: "Gestión remota: instalar, bloquear o borrar un portátil/móvil perdido." },
   { k: "Phishing", d: "Correo/SMS falso que imita ser tu banco o el insti para robarte la clave." },
@@ -123,11 +123,9 @@ export const glosario = [
   { k: "DLP", d: "Reglas que impiden sacar datos sensibles (ej: notas) fuera del centro." },
   { k: "DPD", d: "Delegado Protección de Datos de la Consejería: protecciondatos.educacion@madrid.org" },
   { k: "SPF/DKIM/DMARC", d: "Filtros que evitan que suplanten el correo del insti." },
-  { k: "2FA", d: "Autenticación en dos pasos: contraseña + código/app. Si te roban la pass, no entran." },
-  { k: "Brecha", d: "Acceso no autorizado a datos. Ej: una web que pierde contraseñas de usuarios." },
   { k: "Cifrado", d: "Convertir datos en código ilegible. Solo quien tiene la clave puede leerlos." },
   { k: "Ingeniería social", d: "Técnicas para engañar a personas y que revelen información o hagan clic." },
-  { k: "Brecha de datos", d: "Acceso no autorizado a información personal. Se notifica a la AEPD en 72h." },
+  { k: "Brecha de datos", d: "Acceso no autorizado a información personal. Se notifica a la AEPD en 72h. Ej: web que pierde usuarios." },
   { k: "Zero-day", d: "Vulnerabilidad desconocida por el fabricante. No hay parche todavía." },
 ]
 export const recursos = [
